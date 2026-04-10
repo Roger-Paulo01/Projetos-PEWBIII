@@ -1,16 +1,16 @@
-package br.com.doceria.conexao;
+package br.com.montadora.conexao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Conexao {
-
+	
 	public static Connection abrirConexao() {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3307/doceria";
+			String url = "jdbc:mysql://localhost:3307/montadora";
 			
 			//"jdbc:mysql://localhost:3306/teste","root", "*123456HAS*"
 			final String USER = "root";
