@@ -6,18 +6,20 @@ public class TesteMoto {
 
 	public static void main(String[] args) {
 		
+		
 		Moto moto = new Moto();
 		
-		moto.setFabricante("Yamaha");
-		moto.setModelo("DK160");
-		moto.setModeloVolante("foguinho");
+		moto.setFabricante("Honda");
+		moto.setModelo("150 cc");
+		moto.setAdesivo("Azul");
 		
-		
-		System.out.println("O fabricante " + moto.getFabricante() + 
-				"\nimporta o carro " + moto.getModelo() + 
-				"\ncom adesivo " + moto.getAdesivo()
+		System.out.println("Fabricante: " + 
+				moto.getFabricante() +
+				"\nModelo: " +
+				moto.getModelo() +
+				"\nAdesivo: " +
+				moto.getAdesivo()
 				);
-		
-	}
 
+	}
 }

@@ -2,7 +2,9 @@ package br.com.fabricaroupa.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import br.com.fabricaroupa.model.Calca;
 
@@ -84,7 +86,33 @@ public class CalcaDAO {
 			return e.getMessage();
 		}
 	}
-	//Deletar sem where
 	
-	//Deletar com where
+	//Selecionar
+	
+	public ArrayList<Calca> selecionar() {
+		String sql = "select * from calca";
+		ArrayList<Calca> retornarCalca = new ArrayList<Calca>();
+		try {
+			PreparedStatement ps = getCon().prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					Calca calca = new Calca();
+					calca.setTipoTecido(rs.getString(1));
+					calca.setCor(rs.getString(2));
+					calca.setPeso(rs.getDouble(3));
+					calca.setQuantidadeBotao(rs.getInt(4));
+					retornarCalca.add(calca);
+				}
+				return retornarCalca;
+			} else {
+				return null;
+			}
+		} catch (SQLException e) {
+			return null;
+		}	
+		//return retornarCalca;
+	} //Fim do método selecionar
+	
+
 }

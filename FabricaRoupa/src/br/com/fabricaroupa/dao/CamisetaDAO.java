@@ -2,8 +2,9 @@ package br.com.fabricaroupa.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
 import br.com.fabricaroupa.model.Camiseta;
 
 
@@ -81,4 +82,29 @@ public class CamisetaDAO {
 			return e.getMessage();
 		}
 	}
+	
+	public ArrayList<Camiseta> selecionar() {
+		String sql = "select * from camiseta";
+		ArrayList<Camiseta> retornarCamiseta = new ArrayList<Camiseta>();
+		try {
+			PreparedStatement ps = getCon().prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			if (rs != null) {
+				while (rs.next()) {
+					Camiseta camiseta = new Camiseta();
+					camiseta.setTipoTecido(rs.getString(1));
+					camiseta.setCor(rs.getString(2));
+					camiseta.setPeso(rs.getDouble(3));
+					camiseta.setTipoManga(rs.getString(4));
+					retornarCamiseta.add(camiseta);
+				}
+				return retornarCamiseta;
+			} else {
+				return null;
+			}
+		} catch (SQLException e) {
+			return null;
+		}	
+		//return retornarCalca;
+	} //Fim do método selecionar
 }

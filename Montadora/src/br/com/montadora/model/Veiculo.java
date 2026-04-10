@@ -1,9 +1,9 @@
 package br.com.montadora.model;
 
 public class Veiculo {
-	public String fabricante;
-	public String modelo;
 	
+	private String fabricante;
+	private String modelo;
 	
 	public String getFabricante() {
 		return fabricante;
@@ -17,7 +17,4 @@ public class Veiculo {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	
-	
-
 }
